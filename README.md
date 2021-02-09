@@ -8,13 +8,15 @@ https://github.com/arut/nginx-dav-ext-module
 
 ## Features
 
-源码编译 nginx + http_dav_module + nginx-dav-ext-module 安装，镜像体积小
+Compilación de código fuente nginx + http_dav_module + instalación nginx-dav-ext-module, tamaño de imagen pequeño 
 
-支持 `-e USERNAME xxx -e PASSWORD xxx` 设置单用户登录
 
-支持 `-v /your/htpasswd:/opt/nginx/conf/htpasswd:ro` 设置多用户登录
 
-多用户登录方式优先级更高
+Soporte para -e USERNAME xxx -e PASSWORD xxxconfigurar un inicio de sesión de usuario único
+
+Soporte -v /your/htpasswd:/opt/nginx/conf/htpasswd:rod inicio de sesión multiusuario
+
+El inicio de sesión multiusuario tiene mayor prioridad 
 
 ## Github
 
@@ -45,8 +47,7 @@ docker run -d \
     --name=webdav \
     duxlong/webdav
 ```
-
-docker run 根据自己情况修改-多用户
+Docker ejecutar modificar según su propia situación: usuario único 
 ```
 docker run -d \
     -v /srv/dev-disk-by-label-2T/download:/data/download \
@@ -59,14 +60,16 @@ docker run -d \
     --name=webdav \
     duxlong/webdav
 ```
+Docker ejecutar modificado según su propia situación-multiusuario 
 
-- 支持多用户；运行容器前，需要在线网站生成并配置好 `htpasswd` 文件（默认 Md5 算法加密）
 
-- 把需要共享的文件挂载在 `/data` 目录下
 
-- 把用户信息挂载在 `/opt/nginx/conf/htpasswd` 目录下
 
-docker-compose 根据自己情况修改-多用户
+- Soporte multiusuario; embarcación previa a la ejecución, los sitios en línea deben generar y configurar htpasswdarchivos (el algoritmo de cifrado predeterminado Md5)
+- La necesidad de compartir archivos en el montaje. /datadirectorio de
+- Información de usuario montada en /opt/nginx/conf/htpassw del directorio
+
+
 ```
 version: "2"
 services:
