@@ -26,7 +26,7 @@ RUN apk update && \
 
 VOLUME /data
 
-EXPOSE 80
+EXPOSE 4000
 
 CMD /entrypoint.sh && /opt/nginx/sbin/nginx -g "daemon off;"
 
